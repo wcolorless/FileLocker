@@ -1,0 +1,62 @@
+﻿<Window x:Class="FileLocker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileLocker"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" BorderBrush="Black" BorderThickness="1" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF6767E8" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <TextBlock HorizontalAlignment="Center" Margin="0,2,0,0" Text="File Locker" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Consolas" FontSize="20" FontWeight="Bold">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" BlurRadius="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Text="x" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas" FontSize="43" FontWeight="Bold" Margin="762,-10,0,0" Height="48" Width="30" TextAlignment="Center" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" BlurRadius="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+        </Grid>
+        <Grid Grid.Row="1" x:Name="PrimeContainer">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Data encryption" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas" FontSize="18" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Text="You can add the file to the encrypted vault or create a new one" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Consolas" FontSize="14" FontWeight="Normal"/>
+                <Button Command="{Binding ShowAddNewStorageWindowCommand}" Content="+ Add new data vault" HorizontalAlignment="Left" Margin="633,29,0,0" VerticalAlignment="Top" FontFamily="Consolas" Width="155" Height="32" BorderBrush="#FF9ADE93" Background="#FF9ADE93"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ListBox x:Name="StorageList" ItemsSource="{Binding AllResources}" SelectedItem="{Binding SelectedResource}" BorderBrush="Black" BorderThickness="0, 1, 0, 1">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Open" Command="{Binding  OpenStorage}" ></MenuItem>
+                            <Separator/>
+                            <MenuItem Header="Remove" Command="{Binding RemoveSelectedResource}" ></MenuItem>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock FontStyle="Normal" FontWeight="Bold" FontFamily="Consolas" Text="{Binding Name}"  Margin="10, 10, 0, 10"/>
+                                <TextBlock Text="{Binding Path}" FontFamily="Consolas"  Margin="10, 30, 0, 10"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Background="#FF4BB459">
+
+        </Grid>
+    </Grid>
+</Window>

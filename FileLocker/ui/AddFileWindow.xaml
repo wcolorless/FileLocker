@@ -1,0 +1,50 @@
+﻿<Window x:Class="FileLocker.ui.AddFileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileLocker.ui"
+        mc:Ignorable="d"
+        Title="AddFileWindow" Height="350" Width="400" BorderThickness="1" BorderBrush="Black" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF6767E8" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <TextBlock HorizontalAlignment="Center" Margin="0,2,0,0" Text="File list" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Consolas" FontSize="20" FontWeight="Bold">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" BlurRadius="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Text="x" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas" FontSize="43" FontWeight="Bold" Margin="367,-10,0,0" Height="48" Width="30" TextAlignment="Center" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" BlurRadius="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox ItemsSource="{Binding Files}" SelectedItem="{Binding SelectedFile}">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Open" Command="{Binding OpenFileCommand}"></MenuItem>
+                        <MenuItem Header="Save to..." Command="{Binding SaveFileToCommand}"></MenuItem>
+                        <Separator></Separator>
+                        <MenuItem Header="Add" Command="{Binding AddFileCommand}"></MenuItem>
+                        <Separator></Separator>
+                        <MenuItem Header="Remove" Command="{Binding RemoveFileCommand}"></MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding FileName}" Margin="10, 10, 10, 10"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="2" Background="#FF4BB459"></Grid>
+    </Grid>
+</Window>

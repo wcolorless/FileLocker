@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLocker", "FileLocker\FileLocker.csproj", "{AA06DC18-719E-46B0-B69D-AD5C121D5C7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA06DC18-719E-46B0-B69D-AD5C121D5C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA06DC18-719E-46B0-B69D-AD5C121D5C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA06DC18-719E-46B0-B69D-AD5C121D5C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA06DC18-719E-46B0-B69D-AD5C121D5C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D1B5551-E207-4ADB-BB84-2E9BC22827AE}
+	EndGlobalSection
+EndGlobal
